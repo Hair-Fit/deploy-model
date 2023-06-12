@@ -1,0 +1,9 @@
+__pycache__
+.vscode
+bangkit-predict-api
+hairfit
+hairfit*
+tmp/img/*
+!.gitkeep
+serviceaccount.json
+.env
