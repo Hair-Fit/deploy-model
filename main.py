@@ -5,7 +5,6 @@ import numpy as np
 from keras.preprocessing import image
 import tensorflow as tf
 from tensorflow.keras import utils as image
-import matplotlib.image as mpimg
 import os
 
 app = FastAPI()
@@ -29,7 +28,6 @@ IMGDIR = "tmp/img/"
 async def root():
     return {"message": "Welcome to the Hair Fit Prediction API!"}
 
-
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     img = await file.read()
@@ -39,9 +37,12 @@ async def predict(file: UploadFile = File(...)):
     img_source = image.load_img(imgFullPath, target_size = (224,224))
     x = image.img_to_array(img_source)
     x = np.expand_dims(x, axis = 0)
+
     images = np.vstack([x])
     classes = model.predict(images, batch_size = 10)
+    print(classes)
     answer = np.argmax(classes, axis = 1)
+
     result = ""
     if answer[0] == 0:
         print('Heart')
@@ -63,5 +64,5 @@ async def predict(file: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 8080))
     run(app, host="0.0.0.0", port=port)

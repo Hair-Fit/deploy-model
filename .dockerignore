@@ -1,3 +1,6 @@
 /__pycache__
 /.vscode
 /bangkit-predict-api
+serviceaccount.json
+.env
+.git
