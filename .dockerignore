@@ -4,3 +4,4 @@
 serviceaccount.json
 .env
 .git
+Dockerfile
