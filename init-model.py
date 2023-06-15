@@ -3,6 +3,8 @@ from google.oauth2 import service_account
 import os
 import asyncio
 from urllib.parse import urlparse
+from dotenv import load_dotenv
+load_dotenv()
 storage_client = storage.Client(
     project=os.environ.get('GCP_PROJECT'),
     credentials=service_account.Credentials.from_service_account_file('serviceaccount.json')

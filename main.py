@@ -6,12 +6,15 @@ from keras.preprocessing import image
 import tensorflow as tf
 from tensorflow.keras import utils as image
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI()
 model = tf.keras.models.load_model('hairfit.h5')
 
 # Configure CORS for allowed site in origins
 availableOrigin = os.environ.get('BACKEND','*')
+# availableOrigin = os.getenv('BACKEND','*')
 origins = [availableOrigin]
 methods = ["*"]
 headers = ["*"]

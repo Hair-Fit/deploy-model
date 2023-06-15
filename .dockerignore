@@ -1,6 +1,5 @@
 /__pycache__
 /.vscode
 /bangkit-predict-api
-.env
 .git
 Dockerfile
