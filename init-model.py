@@ -4,7 +4,7 @@ import os
 import asyncio
 from urllib.parse import urlparse
 storage_client = storage.Client(
-    project="august-edge-384214",
+    project=os.environ.get('GCP_PROJECT'),
     credentials=service_account.Credentials.from_service_account_file('serviceaccount.json')
 )
 def decode_gcs_url(url):
@@ -21,6 +21,6 @@ async def download_blob(url):
         blob.download_to_filename(os.path.basename(file_path))
 
 
-asyncio.run(download_blob("https://storage.cloud.google.com/tfjs-model-hair-fit/tfjs-test-1.zip"))
+asyncio.run(download_blob(os.environ.get('MODEL_URL')))
 
 
