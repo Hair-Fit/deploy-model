@@ -11,7 +11,8 @@ app = FastAPI()
 model = tf.keras.models.load_model('hairfit.h5')
 
 # Configure CORS for allowed site in origins
-origins = ["*"]
+availableOrigin = os.environ.get('BACKEND','*')
+origins = [availableOrigin]
 methods = ["*"]
 headers = ["*"]
 app.add_middleware(
