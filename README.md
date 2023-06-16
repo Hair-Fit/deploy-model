@@ -1,4 +1,5 @@
-# Model deployment environment that this project use
+# Model deployment for Bangkit's Capstone Project "Hair Fit"
+# Environment that this project use
 - Python (`python:3.8.10`)
 # Depedencies
 In the `requirement.txt` maybe it looks many, but it is included the library depedencies. The actual that we install :
@@ -13,6 +14,7 @@ In the `requirement.txt` maybe it looks many, but it is included the library dep
 - google-cloud-storage 
 - python-dotenv
 # Setup
+It is up to you to run it on local or cloud
 1. git clone this repository into cloud shell or local repository
 2. Configure your environment variable by declare it on your shell or make the .env file that located here or `./.env` or just `.env`. Below is the env variable that needed.
 ```bash
@@ -20,7 +22,9 @@ BACKEND="backend endpoint"
 MODEL_URL="link model for download that are in GCP Bucket"
 GCP_PROJECT="your gcp project id"
 ```
-3. Get your service account json key and make sure your service account have permission "Storage Object Admin". Make that file located here or `/.serviceaccount.json` or `serviceaccount.json`
+3. Get the [Model](https://github.com/Hair-Fit/Model) by running the notebook on google collab and download it. For running this prediction service on the cloud, you should upload the model in the GCS Bucket.
+4. Get your service account json key and make sure your service account have permission "Storage Object Admin". Make that file located here or `/.serviceaccount.json` or `serviceaccount.json`
+
 
 # Deployment
 
