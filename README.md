@@ -95,9 +95,16 @@ the endpoint for predict would be kinda like this :
 ```shell
 https://your-cloud-run-url/predict
 ```
-The request body with POST method would be like :
+## To test
+### Using POST request method
+The request header couldbe : <br>
+`Conten-Type = multipart/form-data` <br>
+The request body would be like  :
 ```json
 {
   "file":your-file
 }
 ```
+### Using postman
+You just need submit the image using form-data with value type as file <br>
+`file : value-type-as-a-file`
